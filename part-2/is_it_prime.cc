@@ -73,13 +73,13 @@ int main(int argc, char const* argv[]) {
 
   // TODO: Write the trial division algorithm using your own integer suqare root
   // function to control the loop.
-  input_number = stoi(args.at(1));
-  for(int counter = 2; counter < IntegerSquareRoot(input_number); counter++){
+
+  for(int counter = 2; counter <= IntegerSquareRoot(input_number); counter++){
+    cout << “this is the counter value: “ << counter << “\n”;
   if (input_number % counter == 0){
-    is_prime_flag = true;
-  } else {
     is_prime_flag = false;
   }
+  break;
 }
 
 
