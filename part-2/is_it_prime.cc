@@ -75,11 +75,12 @@ int main(int argc, char const* argv[]) {
   // function to control the loop.
 
   for(int counter = 2; counter <= IntegerSquareRoot(input_number); counter++){
-    cout << “this is the counter value: “ << counter << “\n”;
+    
   if (input_number % counter == 0){
     is_prime_flag = false;
+    break;
   }
-  break;
+
 }
 
 
