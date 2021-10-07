@@ -1,4 +1,12 @@
-
+// Grace Lee
+// CPSC 120-01
+// 2021-10-07
+// grace1@csu.fullerton.edu
+// @gracelee2
+//
+// Lab 05-02
+//
+// Program to decide whether or not a number is prime
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,6 +26,23 @@ using namespace std;
 /// returns the integer square root of input_number
 int IntegerSquareRoot(int input_number) {
   // TODO: Implement the integer square root algorithm
+  int square_root = 0;
+    int initial_estimate = input_number / 2;
+    if (initial_estimate == 0) {
+      square_root = input_number;
+    } else {
+      int next_estimate =
+          (initial_estimate + input_number / initial_estimate) / 2;
+
+      while (next_estimate < initial_estimate) {
+        initial_estimate = next_estimate;
+        next_estimate = (initial_estimate + input_number / initial_estimate) / 2
+  ;
+      }
+      square_root = next_estimate;
+    }
+
+
 }
 
 /// Main function - the entry point to our program
@@ -48,6 +73,17 @@ int main(int argc, char const* argv[]) {
 
   // TODO: Write the trial division algorithm using your own integer suqare root
   // function to control the loop.
+  input_number = stoi(args.at(1));
+  for(int counter = 0; counter < IntegerSquareRoot(input_number); counter++){
+  int IntegerSquareRoot(int input_number);
+  if (IntegerSquareRoot(int input_number) == 0){
+    is_prime_flag = false;
+  } else {
+    is_prime_flag = false;
+  }
+}
+
+
 
   cout << input_number;
   if (is_prime_flag) {
