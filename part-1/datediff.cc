@@ -1,5 +1,12 @@
-
-/// Program to calculate the date between two Gregorian dates.
+// Grace Lee
+// CPSC 120-01
+// 2021-10-7
+// grace1@csu.fullerton.edu
+// @gracelee2
+//
+// Lab 05-01
+//
+// Program to calculate the date between two Gregorian dates.
 
 #include <iostream>
 #include <string>
@@ -21,7 +28,10 @@ using namespace std;
 int GregorianToJulian(int day, int month, int year) {
   int julian_day_number = 0;
 
-  // TODO: write the implementation
+  julian_day_number = day - 32075 +
+                      1461 * (year + 4800 + (month - 14) / 12) / 4 +
+                      367 * (month - 2 - (month - 14) / 12 * 12) / 12 -
+                      3 * ((year + 4900 + (month - 14) / 12) / 100) / 4;
 
   return julian_day_number;
 }
