@@ -25,24 +25,22 @@ using namespace std;
 /// \param input_number The number to be square rooted
 /// returns the integer square root of input_number
 int IntegerSquareRoot(int input_number) {
-  // TODO: Implement the integer square root algorithm
   int square_root = 0;
-    int initial_estimate = input_number / 2;
-    if (initial_estimate == 0) {
-      square_root = input_number;
-    } else {
-      int next_estimate =
-          (initial_estimate + input_number / initial_estimate) / 2;
+  int initial_estimate = input_number / 2;
+  if (initial_estimate == 0) {
+    square_root = input_number;
+  } else {
+    int next_estimate =
+        (initial_estimate + input_number / initial_estimate) / 2;
 
-      while (next_estimate < initial_estimate) {
-        initial_estimate = next_estimate;
-        next_estimate = (initial_estimate + input_number / initial_estimate) / 2
-  ;
-      }
-      square_root = next_estimate;
+    while (next_estimate < initial_estimate) {
+      initial_estimate = next_estimate;
+      next_estimate = (initial_estimate + input_number / initial_estimate) / 2
+;
     }
-return square_root;
-
+    square_root = next_estimate;
+  }
+  return square_root;
 }
 
 /// Main function - the entry point to our program
@@ -71,19 +69,13 @@ int main(int argc, char const* argv[]) {
 
   bool is_prime_flag = true;
 
-  // TODO: Write the trial division algorithm using your own integer suqare root
-  // function to control the loop.
-
-  for(int counter = 2; counter <= IntegerSquareRoot(input_number); counter++){
-    
-  if (input_number % counter == 0){
-    is_prime_flag = false;
-    break;
+  for (int counter = 2; counter <= IntegerSquareRoot(input_number); counter++)
+{
+    if (input_number % counter == 0) {
+      is_prime_flag = false;
+      break;
+    }
   }
-
-}
-
-
 
   cout << input_number;
   if (is_prime_flag) {
