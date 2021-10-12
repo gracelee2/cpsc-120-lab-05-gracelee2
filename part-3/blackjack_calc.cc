@@ -24,14 +24,14 @@ using namespace std;
 /// \remark This is in the inverse of NumericValueToFaceValue()
 int NumericValue(const string &face_value) {
   int numeric_value = 0;
-  numeric_value = stoi(face_value);
-  if(numeric_value == 1){
+  if ((face_value == "1") || (face_value == "K") || (face_value == "Q") ||
+      (face_value == "J")) {
     numeric_value = 10;
+  } else if (face_value == "A") {
+    numeric_value = 11;
+  } else {
+    numeric_value = stoi(face_value);
   }
-  if(face_value == "K" || "J"|| "Q"|| "A"){
-    numeric_value = 10;
-  }
-  // TODO: Implement the function
 
   return numeric_value;
 }
@@ -88,13 +88,14 @@ int main(int argc, char const *argv[]) {
   int card_one_value = 0;
   int card_two_value = 0;
   int sum = 0;
-  // TODO: Find the valuEes of card_one and card_two
-card_one_value = stoi(card_one);
-card_two_value = stoi(card_two);
-  // TODO: If both cards are aces, subtract 10 from the sum
 
-  // TODO: Sum the value of the cards
-sum = card_one_value + card_two_value;
+  card_one_value = NumericValue(FaceValue(card_one));
+  card_two_value = NumericValue(FaceValue(card_two));
+  sum = card_one_value + card_two_value;
+  if (card_one_value == 11 && card_two_value == 11) {
+    sum = (card_one_value + card_two_value) - 10;
+  }
+
   cout << card_one << " + " << card_two << " = " << sum << "\n";
 
   return 0;
